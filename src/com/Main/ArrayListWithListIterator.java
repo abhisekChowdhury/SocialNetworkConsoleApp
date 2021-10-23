@@ -1,3 +1,4 @@
+package com.Main;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.ListIterator;
@@ -119,7 +120,23 @@ public class ArrayListWithListIterator<T> implements ListWithListIteratorInterfa
       else
          throw new IndexOutOfBoundsException("Illegal position given to getEntry operation.");
 	} // end getEntry
-   
+	
+	
+	//IMPLEMENT THIS!
+//	public T getEntryByName(String name)
+//	{
+//		checkInitialization();
+//      if ((givenPosition >= 1) && (givenPosition <= numberOfEntries))
+//      {
+//			assert !isEmpty();
+//         return list[givenPosition];
+//      }
+//      else
+//         throw new IndexOutOfBoundsException("Illegal position given to getEntry operation.");
+//	} // end getEntry
+	
+	
+
    public T[] toArray()
    {
 		checkInitialization();
