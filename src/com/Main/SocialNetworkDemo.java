@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 /**
  * @author Abhisek Chowdhury
- * abhisekAssignment1-3475
  * 
  * This is the SocialNetworkDemo class, which implements the UI
  * and the operations of the Profile class and ArrayListWithListIterator class
