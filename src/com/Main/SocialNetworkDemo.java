@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 /**
  * @author Abhisek Chowdhury
+ * abhisekAssignment1-3475
  * 
  * This is the SocialNetworkDemo class, which implements the UI
  * and the operations of the Profile class and ArrayListWithListIterator class
@@ -76,47 +77,51 @@ public class SocialNetworkDemo{
 					+ "7. Remove a friend\n"
 					+ "8. Show all User details\n"
 					+ "9. Exit the network");
-			
-			String selectedOption = scanner.nextLine();
-			switch(Integer.parseInt(selectedOption)) {
-			case 1:
-				//To create a new profile
-				createProfile();
-				break;
-			case 2:
-				//To modify an existing profile
-				modifyProfile();
-				break;
-			case 3:
-				//To get an element by name
-				getElementByName(profileList);
-				break;
-			case 4:
-				//To add a new friend for a Profile
-				addAFriend(profileList);
-				break;
-			case 5:
-				//Displays names of Profiles
-				System.out.println("Here is a list of all users: \n");
-				showAllUsers();
-				break;
-			case 6:
-				//Removes a profile
-				removeProfile();
-				break;
-			case 7:
-				//Removes a friend for a Profile
-				removeFriend(profileList);
-				break;
-			case 8:
-				//Displays all data in profileList
-				showAllUserDetails();
-				break;
-			case 9:
-				//Logs out of the Network
-				exit = 9;
-				System.out.print("Logged out\n\n");
-				break;
+			try {
+				String selectedOption = scanner.nextLine();
+				switch(Integer.parseInt(selectedOption)) {
+				case 1:
+					//To create a new profile
+					createProfile();
+					break;
+				case 2:
+					//To modify an existing profile
+					modifyProfile();
+					break;
+				case 3:
+					//To get an element by name
+					getElementByName(profileList);
+					break;
+				case 4:
+					//To add a new friend for a Profile
+					addAFriend(profileList);
+					break;
+				case 5:
+					//Displays names of Profiles
+					System.out.println("Here is a list of all users: \n");
+					showAllUsers();
+					break;
+				case 6:
+					//Removes a profile
+					removeProfile();
+					break;
+				case 7:
+					//Removes a friend for a Profile
+					removeFriend(profileList);
+					break;
+				case 8:
+					//Displays all data in profileList
+					showAllUserDetails();
+					break;
+				case 9:
+					//Logs out of the Network
+					exit = 9;
+					System.out.print("Logged out\n\n");
+					break;
+				}
+			}
+			catch(NumberFormatException e) {
+				System.out.println("\nPlease enter a valid number \nError caused by input: " + e.getMessage());
 			}
 		}
 	}
@@ -146,7 +151,6 @@ public class SocialNetworkDemo{
 	 */
 	private static void removeFriend(ListWithListIteratorInterface<Profile> profileList2) {
 		System.out.println("Enter the name of the user: \n");
-		//int userPosition = Integer.parseInt(scanner.nextLine());
 		String userName = scanner.nextLine();
 		System.out.println("Enter the position of the friend to remove: (starting from 1)\n");
 		int friendPosition = Integer.parseInt(scanner.nextLine());
@@ -163,8 +167,13 @@ public class SocialNetworkDemo{
 	private static void removeProfile() {
 		System.out.println("Here is a list of all users: \nSelect a number to remove (starting from 1): \n");
 		showAllUsers();
-		int entry = Integer.parseInt(scanner.nextLine());
-		profileList.remove(entry);
+		try {
+			int entry = Integer.parseInt(scanner.nextLine());
+			profileList.remove(entry);
+		}
+		catch(IndexOutOfBoundsException e){
+			System.out.println("Enter a valid position please!\nError caused by: " + e);
+		}
 		
 	}
 
